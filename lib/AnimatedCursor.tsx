@@ -85,7 +85,8 @@ const CursorCore = ({
   // Outer Cursor Animation Delay
   const animateOuterCursor = useCallback(
     (time: number) => {
-      if (previousTimeRef.current !== undefined) {
+      if (previousTimeRef.current !== undefined
+        && cursorOuterRef && cursorOuterRef.current && cursorOuterRef.current.style) {
         coords.x += (endX.current - coords.x) / trailingSpeed
         coords.y += (endY.current - coords.y) / trailingSpeed
         cursorOuterRef.current.style.top = `${coords.y}px`
